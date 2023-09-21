@@ -3,12 +3,6 @@
 version = 3
 
 [[package]]
-name = "bitfield"
-version = "0.14.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d7e60934ceec538daadb9d8432424ed043a904d8e0243f3c6446bce549a46ac"
-
-[[package]]
 name = "bitfield-struct"
 version = "0.5.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -18,12 +12,6 @@ dependencies = [
  "quote",
  "syn",
 ]
-
-[[package]]
-name = "bitflags"
-version = "2.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b4682ae6287fcf752ecaabbfcc7b6f9b72aa33933dc23a554d853aea8eea8635"
 
 [[package]]
 name = "proc-macro2"
@@ -47,9 +35,7 @@ dependencies = [
 name = "rustcpp"
 version = "1.72.1"
 dependencies = [
- "bitfield",
  "bitfield-struct",
- "bitflags",
 ]
 
 [[package]]
