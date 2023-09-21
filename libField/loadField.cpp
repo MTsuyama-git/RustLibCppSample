@@ -14,9 +14,7 @@ void Load(const Register& reg) noexcept
     return;
 }
 
-void Load(const uint32_t reg)
+void Load(const void* pReg)
 {
-    Register __reg;
-    __reg.raw = reg;
-    Load(__reg);
+    Load(*reinterpret_cast<const Register*>(pReg));
 }

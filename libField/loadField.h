@@ -10,7 +10,7 @@ extern "C"
 #include <stdint.h>
 typedef uint32_t Register;
 #endif
-void Load(const uint32_t reg);
+void Load(const void* pReg);
 
 #if defined(__cplusplus)
 }

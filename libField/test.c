@@ -2,10 +2,15 @@
 
 int main(int argc, char** argv)
 {
-    Load(1);
-    Load(1 << 31);
-    Load(1023 << 1);
-    Load(1023 << 11);
-    Load(1023 << 21);
+    uint32_t raw = 1;
+    Load(&raw);
+    raw = 1 << 31;
+    Load(&raw);
+    raw = 1023 << 1;
+    Load(&raw);
+    raw = 1023 << 11;
+    Load(&raw);
+    raw = 1023 << 21;
+    Load(&raw);
     return 0;
 }
