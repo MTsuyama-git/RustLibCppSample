@@ -21,14 +21,28 @@ union MyRegStruct {
     raw: u32,
 }
 
+mod ffi {
+    #[link(name = "field")]
+    extern "C" {
+        pub fn Load(val:u32);
+    }
+}
+
 fn main() {
     unsafe {
-        let mut my_reg_struct: MyRegStruct = MyRegStruct { raw: 0 };
-        println!("my_reg_struct: {}", my_reg_struct.raw);
-        my_reg_struct.field.set_lsb(1);
-        println!("my_reg_struct: {}", my_reg_struct.raw);
+        let mut my_reg_struct: MyRegStruct = MyRegStruct { raw: 1 };
+        ffi::Load(my_reg_struct.raw);
+        my_reg_struct.raw = 0;
+        my_reg_struct.field.set_msb(1);
+        ffi::Load(my_reg_struct.raw);
+        my_reg_struct.raw = 0;
+        my_reg_struct.field.set_p0(1023);
+        ffi::Load(my_reg_struct.raw);
+        my_reg_struct.raw = 0;
+        my_reg_struct.field.set_p1(1023);
+        ffi::Load(my_reg_struct.raw);
         my_reg_struct.raw = 0;
         my_reg_struct.field.set_p2(1023);
-        println!("my_reg_struct: 0x{:08x}", my_reg_struct.raw);
+        ffi::Load(my_reg_struct.raw);
     }
 }
